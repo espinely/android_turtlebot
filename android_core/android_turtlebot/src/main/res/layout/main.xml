@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:gravity="bottom"
+    android:id="@+id/relativeLayout">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="472dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/linearLayout"
+        android:layout_toLeftOf="@+id/linearLayout2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAP VIEWER:"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <org.ros.android.view.visualization.VisualizationView
+            android:id="@+id/visualization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.73" />
+
+        <LinearLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff404040"
+            android:gravity="right"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:weightSum="1">
+
+            <RadioButton
+                android:id="@+id/set_pose_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="setPoseClicked"
+                android:checked="true"
+                android:text="Set Pose"
+                android:layout_weight="0.17" />
+
+            <RadioButton
+                android:id="@+id/set_goal_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="setGoalClicked"
+                android:text="Set Goal"
+                android:layout_weight="0.06" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="43dp"
+        android:layout_height="fill_parent"
+        android:id="@+id/linearLayout2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/linearLayout2"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KINECT CAMERA:"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <org.ros.android.view.RosImageView
+            android:layout_height="78dp" android:src="@drawable/icon"
+            android:id="@+id/image" android:layout_width="match_parent"
+            android:layout_alignBottom="@+id/joystickView"
+            android:layout_weight="0.84">
+        </org.ros.android.view.RosImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KEYBOARD / JOYSTICK:"
+            android:id="@+id/textView3"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5.85"
+                android:layout_gravity="center_horizontal">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:text="FWD"
+                    android:id="@+id/buttonFWD"
+                    android:layout_gravity="center_horizontal|top"
+                    android:textStyle="bold"
+                    android:onClick="dummyClick"
+                    android:enabled="true"
+                    android:clickable="true"
+                    android:textColor="#ff000000"
+                    android:textColorHighlight="#ffff000f"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:text="BWD"
+                    android:id="@+id/buttonBWD"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textStyle="bold"
+                    android:onClick="dummyClick"
+                    android:focusable="false"
+                    android:enabled="true"
+                    android:clickable="true"
+                    android:textColor="#ff000000"
+                    android:textColorHighlight="#ffff000f"
+                    android:focusableInTouchMode="false" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:text="LEFT"
+                    android:id="@+id/buttonLEFT"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:onClick="dummyClick"
+                    android:enabled="true"
+                    android:clickable="true"
+                    android:textColor="#ff000000"
+                    android:textColorHighlight="#ffff000f"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:text="RIGHT"
+                    android:id="@+id/buttonRIGHT"
+                    android:layout_gravity="right|center_vertical"
+                    android:textStyle="bold"
+                    android:onClick="dummyClick"
+                    android:enabled="true"
+                    android:clickable="true"
+                    android:textColor="#ff000000"
+                    android:textColorHighlight="#ffff000f"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout3"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1.78" />
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="164dp"
+                class="com.zerokol.views.JoystickView"
+                android:id="@+id/joystickView"
+                android:layout_column="57"
+                android:layout_alignParentRight="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
